@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>İletişim - ARSLANOTO</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Basit iletişim formu stili */
+    main {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 0 20px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #f7f7f7;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      background: #f7f7f7;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgb(0 0 0 / 0.1);
+    }
+    label {
+      font-weight: 600;
+      color: #555;
+    }
+    input, textarea {
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }
+    input:focus, textarea:focus {
+      border-color: #d1bd05;
+      outline: none;
+      box-shadow: 0 0 5px #d1bd05;
+    }
+    button {
+      width: 120px;
+      padding: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: white;
+      background-color: #d1bd05;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      align-self: center;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #000000;
+    }
+    .info {
+      margin-top: 30px;
+      text-align: center;
+      color: #f7f7f7;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }.navbar .nav-links li a.active {
+      font-weight: 700;
+      color: #d1bd05;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo"><a href="index.html">ARSLAN<span>OTO</span></a></div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Anasayfa</a></li>
+       <li><a href="arac.php">Araçlar</a></li>
+        <li><a href="iletisim.html" class="active">İletişim</a></li>
+        <li><a href="hakkimizda.html">Hakkımızda</a></li>
+        <li><a href="adres.html">Adres</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Bizimle İletişime Geçin</h1>
+    <form id="contactForm" action="#" method="POST" onsubmit="return false;">
+      <label for="name">Adınız Soyadınız</label>
+      <input type="text" id="name" name="name" placeholder="Adınızı girin" required />
+
+      <label for="email">E-posta Adresiniz</label>
+      <input type="email" id="email" name="email" placeholder="Email adresinizi girin" required />
+
+      <label for="message">Mesajınız</label>
+      <textarea id="message" name="message" rows="5" placeholder="Mesajınızı yazın..." required></textarea>
+
+      <button type="submit" onclick="submitForm()">Gönder</button>
+    </form>
+
+    <div class="info">
+      <p><strong>Telefon:</strong> +90 555 123 45 67</p>
+      <p><strong>E-posta:</strong> info@galeripro.com</p>
+      <p><strong>Adres:</strong> İstanbul, Türkiye</p>
+    </div>
+  </main>
+
+  <script>
+    function submitForm() {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !message) {
+        alert('Lütfen tüm alanları doldurun.');
+        return;
+      }
+
+      // Burada gerçek form gönderme işlemi yapılabilir (örn. fetch ile API çağrısı)
+      alert('Mesajınız için teşekkürler, en kısa sürede dönüş yapacağız!');
+
+      // Formu temizle
+      document.getElementById('contactForm').reset();
+    }
+  </script>
+</body>
+</html>

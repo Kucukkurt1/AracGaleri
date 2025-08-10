@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Adres - GaleriPro</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    .address-container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    .address-info {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+    .map-container {
+      width: 600px;
+      max-width: 100%;
+      height: 350px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border: 2px solid #999; /* Gri border */
+      margin: 0 auto;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      background-color: transparent; /* Transparan yapıldı */
+      margin-top: 60px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .navbar .nav-links li a.active {
+      font-weight: 700;
+      color: #d1bd05;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+   <div class="logo"><a href="index.html">ARSLAN<span>OTO</span></a></div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Anasayfa</a></li>
+        <li><a href="araclar.html">Araçlar</a></li>
+        <li><a href="iletisim.html">İletişim</a></li>
+        <li><a href="hakkimizda.html">Hakkımızda</a></li>
+        <li><a href="adres.html" class="active">Adres</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="address-container">
+    <h1>Adresimiz</h1>
+    <div class="address-info">
+      <p><strong>GaleriPro Otomotiv Ltd. Şti.</strong></p>
+      <p>Atatürk Mah. 1234. Sok. No:56</p>
+      <p>Kadıköy / İstanbul</p>
+      <p>Türkiye</p>
+      <p>Telefon: +90 216 123 45 67</p>
+      <p>E-posta: info@galeripro.com</p>
+    </div>
+
+    <div class="map-container">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.420899927731!2d29.0358006150514!3d40.98569347931316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab9b6d6b7bf25%3A0x123456789abcdef!2sKad%C4%B1k%C3%B6y%2C%20Istanbul!5e0!3m2!1str!2str!4v1685589600000!5m2!1str!2str" 
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 GaleriPro. Tüm hakları saklıdır.</p>
+  </footer>
+</body>
+</html>

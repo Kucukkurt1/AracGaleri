@@ -1,0 +1,142 @@
+body {
+  margin: 0;
+  font-family: 'Montserrat', "Segoe UI", Arial, Helvetica, sans-serif;
+  background: url("images/golden.jpg") center/cover no-repeat fixed;
+  color: #fff;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 32px;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(4px);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: .5px;
+}
+
+.logo span {
+  color: #ffbf00;
+}
+
+.logo a {
+  color: inherit !important;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.logo a:hover {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  position: relative;
+  transition: color .2s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ffbf00;
+  transition: width .3s ease;
+}
+
+.nav-links a:hover {
+  color: #ffbf00;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+@media (max-width:600px) {
+  .navbar {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.car-gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 40px 20px;
+  background: rgba(0,0,0,0.5);
+  border-radius: 12px;
+  max-width: 1000px;
+  margin: 30px auto;
+  flex-wrap: wrap;
+}
+
+.car-image,
+.porsche-img-container {
+  width: 640px;
+  height: 440px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.7);
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.car-image img {
+  width: 640px;
+  height: 440px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.porsche-img-container img {
+  width: 540px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.maserati-img-container {
+  width: 650px;
+  height: 440px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.7);
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.maserati-img-container img {
+  width: 460px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+}
+

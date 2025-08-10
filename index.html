@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Galeri Sitesi</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  .nav-links a.active {
+    color: #d1bd05;
+    font-weight: 700;
+  }
+  
+</style>
+
+</head>
+<body>
+<header class="navbar">
+  <div class="logo"><a href="index.html">ARSLAN<span>OTO</span></a></div>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Anasayfa</a></li>
+       <li><a href="araclar.html">Araçlar</a></li>
+      <li><a href="iletisim.html">İletişim</a></li>
+      <li><a href="hakkimizda.html">Hakkımızda</a></li>
+      <li><a href="adres.html">Adres</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+
+  <!-- Sabit yazdığın araçlar burada korunuyor -->
+  <section class="car-gallery">
+    <div class="car-image">
+      <img src="images/peugot.png" alt="Peugeot 3008" />
+    </div>
+    <div class="car-details">
+      <h2>Peugeot 3008</h2>
+      <ul>
+        <li>Yıl: 2023</li>
+        <li>Motor: 1.6L Turbo Benzin</li>
+        <li>Güç: 180 HP</li>
+        <li>Yakıt Türü: Benzin</li>
+        <li>Şanzıman: Otomatik</li>
+        <li>Fiyat: 850.000 ₺</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="car-gallery">
+    <div class="porsche-img-container">
+      <img src="images/porsche.png" alt="Porsche Panamera" />
+    </div>
+    <div class="car-details">
+      <h2>Porsche Panamera</h2>
+      <ul>
+        <li>Yıl: 2024</li>
+        <li>Motor: 4.0L V8 Turbo</li>
+        <li>Güç: 550 HP</li>
+        <li>Yakıt Türü: Benzin</li>
+        <li>Şanzıman: PDK Otomatik</li>
+        <li>Fiyat: 4.500.000 ₺</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="car-gallery">
+    <div class="maserati-img-container">
+      <img src="images/maserati.png" alt="Maserati Levante" />
+    </div>
+    <div class="car-details">
+      <h2>Maserati Levante</h2>
+      <ul>
+        <li>Yıl: 2023</li>
+        <li>Motor: 3.0L V6 Turbo</li>
+        <li>Güç: 350 HP</li>
+        <li>Yakıt Türü: Benzin</li>
+        <li>Şanzıman: Otomatik</li>
+        <li>Fiyat: 2.800.000 ₺</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- JSON'dan gelecek araçların buraya ekleneceği boş container -->
+  <div id="car-gallery"></div>
+  <div id="car-gallery-jsondan"></div>
+
+  <script>
+    fetch('/aracwebsitesi/uploads/data.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Ağ hatası: ' + response.status);
+        }
+        return response.json();
+      })
+      .then(cars => {
+        const gallery = document.getElementById('car-gallery-jsondan');
+        if (!gallery) {
+          console.log("Galeri alanı bulunamadı.");
+          return;
+        }
+
+        if (cars.length === 0) {
+          gallery.innerHTML = '<p>JSON dosyasında araç yok.</p>';
+          return;
+        }
+
+        cars.forEach(car => {
+          const carHTML = `
+            <section class="car-gallery">
+              <div class="car-image">
+                <img src="${car.image}" alt="${car.name}" style="width: 300px;" />
+              </div>
+              <div class="car-details">
+                <h2>${car.name}</h2>
+                <ul>
+                  <li>Yıl: ${car.year}</li>
+                  <li>Motor: ${car.engine}</li>
+                  <li>Güç: ${car.power}</li>
+                  <li>Yakıt Türü: ${car.fuel}</li>
+                  <li>Şanzıman: ${car.transmission}</li>
+                  <li>Fiyat: ${car.price}</li>
+                </ul>
+              </div>
+            </section>
+          `;
+          gallery.insertAdjacentHTML('beforeend', carHTML);
+        });
+      })
+      .catch(error => {
+        console.error('Hata:', error);
+        const gallery = document.getElementById('car-gallery-jsondan');
+        if (gallery) {
+          gallery.innerHTML = '<p>ADMIN PANELINDEN BILGILERI GIR DATA.JSON DOSYASO BOS.</p>';
+        }
+      });
+  </script>
+  <p>ARAÇLAR KISMINA O SEKMEDEYKEN SARI RENK VER. DÜZELTEBİLİYOSAN İLETİŞİME BASINCA NAVBAR BOYU DEĞİŞİYOR. ARAÇLAR KISMINDA RASTGELE ARAÇLAR VAR ONLARI JSON DOSYASINDAN ÇEKEREK YAPMAYI BUL</p>
+</body>
+</html>

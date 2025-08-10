@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hakkımızda - GaleriPro</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    .about-container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+    }
+    .owner-section {
+      display: flex;
+      align-items: center;
+      margin-top: 40px;
+      gap: 20px;
+    }
+    .owner-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #333;
+    }
+    .owner-info {
+      font-size: 1.1rem;
+    }
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      background-color: transparent; /* Transparan yapıldı */
+      margin-top: 60px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .navbar .nav-links li a.active {
+      font-weight: 700;
+      color: #d1bd05;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+   <div class="logo"><a href="index.html">ARSLAN<span>OTO</span></a></div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Anasayfa</a></li>
+      <li><a href="araclar.html">Araçlar</a></li>
+        <li><a href="iletisim.html">İletişim</a></li>
+        <li><a href="hakkimizda.html" class="active">Hakkımızda</a></li>
+        <li><a href="adres.html">Adres</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="about-container">
+    <h1>Hakkımızda</h1>
+    <p>
+      GaleriPro olarak otomobil tutkunlarına en kaliteli ve güncel araç galerisi deneyimini sunmayı amaçlıyoruz. 2020 yılında kurulan firmamız, müşterilerimize en güvenilir ve detaylı araç bilgilerini sağlamaya özen gösterir.
+    </p>
+    <p>
+      Web sitemizde sadece Türkiye'deki değil, dünya çapındaki en yeni araç modellerini bulabilir, teknik özellikleri inceleyebilir ve fiyat karşılaştırmaları yapabilirsiniz. Müşteri memnuniyeti bizim için her zaman ön plandadır.
+    </p>
+    <p>
+      Ekibimiz; otomobil sektöründe deneyimli, yenilikçi ve kullanıcı dostu bir platform yaratmak için çalışmaktadır. Siz de GaleriPro ile araçlar dünyasında bilgiye kolayca ulaşabilirsiniz.
+    </p>
+
+    <section class="owner-section">
+      <img src="images/messi.jpg" alt="Mehmet Emin Küçükkurt" class="owner-photo" />
+      <div class="owner-info">
+        <h2>Mehmet Emin Küçükkurt</h2>
+        <p>Şirket Sahibi</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 GaleriPro. Tüm hakları saklıdır.</p>
+  </footer>
+</body>
+</html>

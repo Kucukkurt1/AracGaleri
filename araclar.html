@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Araçlar</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    #searchInput {
+      width: 100%;
+      max-width: 500px;
+      padding: 10px 15px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 1.8px solid #ccc;
+      margin: 20px auto;
+      display: block;
+      box-sizing: border-box;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    #searchInput:focus {
+      border-color: #0077cc;
+    }
+
+    #carList {
+      max-width: 500px;
+      margin: 10px auto 40px auto;
+    }
+
+    .car-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #f9f9f9;
+      padding: 10px 15px;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      cursor: default;
+    }
+
+    .car-item img {
+      width: 80px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      flex-shrink: 0;
+    }
+
+    .car-name {
+      font-weight: 600;
+      color: #333;
+    }
+
+    .nav-links a.active {
+      font-weight: 700;
+      color: #d1bd05;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo"><a href="index.html">ARSLAN<span>OTO</span></a></div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Anasayfa</a></li>
+        <li><a href="araclar.html" class="active">Araçlar</a></li>
+        <li><a href="iletisim.html">İletişim</a></li>
+        <li><a href="hakkimizda.html">Hakkımızda</a></li>
+        <li><a href="adres.html">Adres</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Arama kutusu -->
+  <input type="text" id="searchInput" placeholder="Araç ismi giriniz..." />
+
+  <!-- Araç listesi -->
+  <div id="carList"></div>
+
+  <script>
+    let cars = [];
+
+    async function fetchCars() {
+      try {
+        const response = await fetch('uploads/data.json'); // ← Burayı güncelledik
+        cars = await response.json();
+        renderCars(cars);
+      } catch (error) {
+        console.error("Araç verileri alınamadı:", error);
+        document.getElementById("carList").innerHTML = "<p>Araç verileri yüklenemedi.</p>";
+      }
+    }
+
+    function renderCars(list) {
+      const container = document.getElementById("carList");
+      container.innerHTML = "";
+
+      if (list.length === 0) {
+        container.innerHTML = "<p>Aradığınız araç bulunamadı.</p>";
+        return;
+      }
+
+      list.forEach(car => {
+        const carDiv = document.createElement("div");
+        carDiv.classList.add("car-item");
+
+       carDiv.innerHTML = `
+  <img src="${car.image}" alt="${car.name}" />
+  <div class="car-name">${car.name || car.model || 'Bilinmeyen Araç'}</div>
+`;
+
+
+        container.appendChild(carDiv);
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      fetchCars();
+
+      const searchInput = document.getElementById("searchInput");
+      searchInput.addEventListener("input", () => {
+        const query = searchInput.value.toLowerCase();
+        const filtered = cars.filter(car => (car.name || car.model || '').toLowerCase().includes(query));
+        renderCars(filtered);
+      });
+    });
+  </script>
+</body>
+</html>
