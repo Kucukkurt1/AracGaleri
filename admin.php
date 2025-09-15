@@ -1,13 +1,13 @@
 <?php
 session_start();
 
-// Giriş yapılmamışsa login sayfasına yönlendir
+
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     header('Location: login.php');
     exit;
 }
 
-// POST ile form gönderildiyse işle
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'] ?? '';
     $year = $_POST['year'] ?? '';
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $price = $_POST['price'] ?? '';
     $image = $_FILES['image'] ?? null;
 
-    // Resim yükleme kontrolü
+ 
     if ($image && $image['error'] === 0) {
         $ext = pathinfo($image['name'], PATHINFO_EXTENSION);
         $allowed = ['jpg', 'jpeg', 'png', 'gif'];
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $newName = '';
     }
 
-    // Yeni araç verisi
+  
     $newCar = [
         'name' => $name,
         'year' => $year,
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'image' => $newName,
     ];
 
-    // Mevcut data.json dosyasını oku ve veriyi ekle
+
     $dataFile = 'uploads/data.json';
     if (file_exists($dataFile)) {
         $jsonData = file_get_contents($dataFile);
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     $cars[] = $newCar;
 
-    // Dosyaya tekrar yaz
+
 file_put_contents($dataFile, json_encode($cars, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 
 
@@ -190,3 +190,4 @@ file_put_contents($dataFile, json_encode($cars, JSON_PRETTY_PRINT | JSON_UNESCAP
 
 </body>
 </html>
+
