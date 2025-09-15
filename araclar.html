@@ -75,10 +75,10 @@
     </nav>
   </header>
 
-  <!-- Arama kutusu -->
+
   <input type="text" id="searchInput" placeholder="Araç ismi giriniz..." />
 
-  <!-- Araç listesi -->
+ 
   <div id="carList"></div>
 
   <script>
@@ -86,7 +86,7 @@
 
     async function fetchCars() {
       try {
-        const response = await fetch('uploads/data.json'); // ← Burayı güncelledik
+        const response = await fetch('uploads/data.json'); 
         cars = await response.json();
         renderCars(cars);
       } catch (error) {
@@ -130,4 +130,5 @@
     });
   </script>
 </body>
+
 </html>
