@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Eğer zaten giriş yapılmışsa admin sayfasına yönlendir
+
 if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
     header('Location: admin.php');
     exit;
@@ -13,8 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
 
-    // Basit kullanıcı adı ve şifre kontrolü
-    // (Gerçek projede veritabanı veya daha güvenli yöntemler kullan)
     if ($username === 'admin' && $password === '12345') {
         $_SESSION['logged_in'] = true;
         header('Location: admin.php');
@@ -44,3 +42,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </body>
 </html>
+
