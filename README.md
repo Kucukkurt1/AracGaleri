@@ -8,8 +8,8 @@ Bu proje, araç galerisi web sitesi olarak hazırlanmıştır. Site üzerinde HT
 - Responsive yapısıyla farklı cihazlara uyumlu
 
 ## Kullanılan Teknolojiler
-- HTML5
-- CSS3
+- HTML
+- CSS
 - JavaScript
 - PHP (admin girişi ve araç ekleme için)
 
